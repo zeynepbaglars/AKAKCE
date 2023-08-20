@@ -2,8 +2,6 @@ package US5_SiparisListesiKontrolü_Ferit;
 
 import Utlity.BaseDriver;
 import Utlity.MyFunc;
-import driver.B_Driver;
-import driver.Func;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.junit.Test;
