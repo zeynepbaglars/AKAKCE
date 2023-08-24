@@ -1,34 +1,67 @@
 package Utlity;
 
+
+
+import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class BaseDriver {
     public static WebDriver driver; // SingletonDriver method
 
-    static{  //bunun sarti extends olmasi ve basta yer almasi mi
+    static{
+        Logger logger=Logger.getLogger("");
+        logger.setLevel(Level.SEVERE);
         driver = new ChromeDriver();
-        //driver.manage().window().maximize(); // Ekranı max yapıyor.
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20)); // 20 sn mühlet: sayfayı yükleme mühlet
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));  // 20 sn mühlet: elementi bulma mühleti
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
     public static void BekleVeKapat(){
         MyFunc.Bekle(5);
         driver.quit();
     }
+    public static void Bekleme(int sn) {
+        MyFunc.Bekle(sn);
+    }
+
+    public void OturumAc() {
+        driver.get("https://www.akakce.com/");
+
+        WebElement girisYap = driver.findElement(By.cssSelector("[id='H_rl_v8'] :nth-child(2)"));
+        girisYap.click();
+        Bekleme(2);
+        WebElement mailGir = driver.findElement(By.cssSelector("span[class='frm_v8'] input[type='email'][id='life']"));
+        mailGir.sendKeys("asudebaykal123@gmail.com");
+        Bekleme(3);
+        WebElement sifreGir = driver.findElement(By.cssSelector("form[action='/akakcem/nojs/'] [type='password'][id='lifp']"));
+        sifreGir.sendKeys("Ac.123456");
+        Bekleme(1);
+        WebElement GirisBtn = driver.findElement(By.xpath("(//*[@value='Giriş yap'])[1]"));
+        GirisBtn.click();
+        Bekleme(5);
+
+
+
+
+    }
+    public static void hoverOver(WebElement element) {
+        Actions aksiyonlar = new Actions(driver);
+        Action aksiyon = aksiyonlar.moveToElement(element).build();
+        aksiyon.perform();
+    }
+
 
 }
 
 
-//  Java hızlı - Web sitesi yavaş
-// java elemanı bulmaya çalışıyor, ama web sitesi hala yuklenıyor. site yüklenmeden java bulamadım dıyor bıtırıyor,
-// Web elementı bulmaya calıstıgında (FindElement/s)
-//  çözüm 1 : biraz süre vereceğiz (20s)
-
-//  Thread.sleep(); -> javayı direkt verilen süre kadar durdurur. kac sanıye verırsen o kadar durdurur programı. Osebeple bu işimize yaramıyor. Bize buldugu zaman cıksın yanı mesela 20 sn verdık 10. sanıyede java buldun cık, 20 sn beklemesın ısterız
-//         bıde bu Thread.sleep ıyı kod degıldır mulakatta bundan bahsetme mesela.
-//  bunun yerıne driver.manage yapıp bunu MyFunc a atıcam oradan cagırıyorum her seferınde yazmayayım dıye

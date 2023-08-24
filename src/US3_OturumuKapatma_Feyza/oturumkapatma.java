@@ -26,7 +26,7 @@ public class oturumkapatma extends BaseDriver {
         WebElement sub = driver.findElement(By.xpath("//input[@id='lfb']"));
         sub.click();
 
-        //çıkışyapma
+
 
         WebElement hesap = driver.findElement(By.xpath("//a[@title='Hesabım']"));
         MyFunc.Bekle(2);
