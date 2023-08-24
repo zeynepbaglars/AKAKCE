@@ -1,6 +1,7 @@
 package US1_KullaniciHesabiOlusturma_Zeynep;
 
 import Utlity.BaseDriver;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -66,6 +67,10 @@ public class KayitOlma_Pozitif extends BaseDriver {
 
         WebElement giris = driver.findElement(By.cssSelector("[value='Hesap aç'][type='submit']"));//Girişe tıkladım
         giris.click();
+        Bekleme(1);
+        Assert.assertTrue("Kayıy yapma başarısız",driver.getCurrentUrl().equals("https://www.akakce.com/"));
+
+        System.out.println(driver.getCurrentUrl());
 
         Bekleme(6);
 
