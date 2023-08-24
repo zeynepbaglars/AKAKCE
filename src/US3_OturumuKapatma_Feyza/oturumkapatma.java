@@ -28,7 +28,7 @@ public class oturumkapatma extends BaseDriver {
 
         MyFunc.Bekle(3);
 
-        //çıkış yapma
+        //çıkış yapmaK İÇİN
 
         WebElement hesap = driver.findElement(By.xpath("//a[@title='Hesabım']"));
         hesap.click();
