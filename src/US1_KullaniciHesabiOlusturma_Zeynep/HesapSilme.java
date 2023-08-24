@@ -12,20 +12,26 @@ public class HesapSilme extends BaseDriver {
 
        OturumAc();
        Bekleme(10);
-       WebElement isim= driver.findElement(By.xpath("//a[text()='Ali']"));
+       WebElement isim= driver.findElement(By.cssSelector("i>[href='/akakcem/']"));
        isim.click();
-       Bekleme(2);
-       WebElement hesabim = driver.findElement(By.cssSelector("//a[text()='Hesabım']"));
-       hesabim.click();
        Bekleme(2);
        WebElement hesabiSil = driver.findElement(By.cssSelector("[href='/akakcem/kullanici-bilgilerim/uyelik-iptali/']"));
        hesabiSil.click();
+
+
+
+
        Bekleme(2);
        WebElement sifreGir = driver.findElement(By.cssSelector("[onfocusout='ControlPassword();']"));
        sifreGir.sendKeys("Ac.123456");
-       WebElement hesapSil = driver.findElement(By.xpath("//*[text()='Hesabın silindi.']"));
-       Assert.assertTrue("Hesap başarılı silinemedi.",hesapSil.getText().equalsIgnoreCase("Hesabın silindi."));
+       WebElement btn = driver.findElement(By.cssSelector("[class='s save button']"));
+       btn.click();
+       Bekleme(3);
+       WebElement hesapSil = driver.findElement(By.xpath("(//*[@href='/akakcem/giris/?m=1'])[2]"));
+
+      Assert.assertTrue("Hesap başarılı silinemedi.",hesapSil.getText().equalsIgnoreCase("Hesap aç"));
 
         BekleVeKapat();
+
     }
 }

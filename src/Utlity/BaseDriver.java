@@ -51,7 +51,7 @@ public class BaseDriver {
         GirisBtn.click();
         Bekleme(5);
 
-        BekleVeKapat();
+
 
 
     }
