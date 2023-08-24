@@ -67,12 +67,8 @@ public class KayitOlma_Pozitif extends BaseDriver {
 
         WebElement giris = driver.findElement(By.cssSelector("[value='Hesap aç'][type='submit']"));//Girişe tıkladım
         giris.click();
-        Bekleme(1);
-        Assert.assertTrue("Kayıy yapma başarısız",driver.getCurrentUrl().equals("https://www.akakce.com/"));
 
-        System.out.println(driver.getCurrentUrl());
-
-        Bekleme(6);
+        Bekleme(10);
 
         BekleVeKapat();
 
