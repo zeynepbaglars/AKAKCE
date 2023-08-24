@@ -1,15 +1,13 @@
-package US2_HesapDoğrulamaKontrolu_Salih;
+package US2_HesapDogrulamaKontrolu_Salih;
 
 import Utlity.BaseDriver;
 import Utlity.MyFunc;
-import com.google.common.annotations.VisibleForTesting;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.sql.Driver;
+
 
 public class IlkGunum extends BaseDriver {
     @Test
