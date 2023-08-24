@@ -2,10 +2,13 @@ package Utlity;
 
 
 
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 import java.util.logging.Level;
@@ -31,23 +34,31 @@ public class BaseDriver {
     public static void Bekleme(int sn) {
         MyFunc.Bekle(sn);
     }
-    public static void Giris() {
 
+    public void OturumAc() {
         driver.get("https://www.akakce.com/");
 
-        WebElement girisYap=driver.findElement(By.cssSelector("[id='H_rl_v8'] :nth-child(2)"));
+        WebElement girisYap = driver.findElement(By.cssSelector("[id='H_rl_v8'] :nth-child(2)"));
         girisYap.click();
         Bekleme(2);
-        WebElement mailGir=driver.findElement(By.cssSelector("span[class='frm_v8'] input[type='email'][id='life']"));
-        mailGir.sendKeys("zeynepbaglars@gmail.com");
+        WebElement mailGir = driver.findElement(By.cssSelector("span[class='frm_v8'] input[type='email'][id='life']"));
+        mailGir.sendKeys("asudebaykal123@gmail.com");
         Bekleme(3);
-        WebElement sifreGir=driver.findElement(By.cssSelector("form[action='/akakcem/nojs/'] [type='password'][id='lifp']"));
-        sifreGir.sendKeys("Zey123456");
+        WebElement sifreGir = driver.findElement(By.cssSelector("form[action='/akakcem/nojs/'] [type='password'][id='lifp']"));
+        sifreGir.sendKeys("Ac.123456");
         Bekleme(1);
-        WebElement GirisBtn=driver.findElement(By.xpath("(//*[@value='Giriş yap'])[1]"));
+        WebElement GirisBtn = driver.findElement(By.xpath("(//*[@value='Giriş yap'])[1]"));
         GirisBtn.click();
         Bekleme(5);
 
+        BekleVeKapat();
+
+
+    }
+    public static void hoverOver(WebElement element) {
+        Actions aksiyonlar = new Actions(driver);
+        Action aksiyon = aksiyonlar.moveToElement(element).build();
+        aksiyon.perform();
     }
 
 
