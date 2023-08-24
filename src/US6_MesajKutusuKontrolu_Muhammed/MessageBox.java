@@ -1,4 +1,4 @@
-package US6_MesajKutusuKontrolu_Zeynep;
+package US6_MesajKutusuKontrolu_Muhammed;
 
 import Utlity.BaseDriver;
 import org.junit.Test;
@@ -14,6 +14,8 @@ public class MessageBox extends BaseDriver {
         /////a[@href='/akakcem/mesajlarim/']---mesajlarım
 
         ////div[@class="wbb_v8"]/p---->Listelenecek mesaj bulunamadı. yazısı ]
+
+        System.out.println("merhabalar");
 
     }
 }
