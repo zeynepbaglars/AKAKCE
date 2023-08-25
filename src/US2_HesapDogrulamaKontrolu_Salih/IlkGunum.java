@@ -8,66 +8,65 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-
 public class IlkGunum extends BaseDriver {
     @Test
-    public void hesapDogrulama(){
+    public void hesapDogrulama() {
 
-        driver=new ChromeDriver();
+        driver = new ChromeDriver();
         driver.get("https://www.akakce.com"); //rngf
         MyFunc.Bekle(1);
 
-        WebElement HesapAc=driver.findElement(By.xpath("//div[@id='H_rl_v8']/a[1]"));
+        WebElement HesapAc = driver.findElement(By.xpath("//div[@id='H_rl_v8']/a[1]"));
         HesapAc.click();
         MyFunc.Bekle(2);
 
-        WebElement isim=driver.findElement(By.xpath("//input[@id='rnufn']"));
-        isim.sendKeys("testuser123");
+        WebElement isim = driver.findElement(By.xpath("//input[@id='rnufn']"));
+        isim.sendKeys("testuser");
         MyFunc.Bekle(2);
 
-        WebElement soyisim=driver.findElement(By.xpath("//input[@id='rnufs']"));
+        WebElement soyisim = driver.findElement(By.xpath("//input[@id='rnufs']"));
         soyisim.sendKeys("Tester");
         MyFunc.Bekle(2);
 
-        WebElement eMail=driver.findElement(By.xpath("//input[@id='rnufe1']"));
-        eMail.sendKeys("testuser@example.com");
+        WebElement eMail = driver.findElement(By.xpath("//input[@id='rnufe1']"));
+        eMail.sendKeys("testuser3@example.com");
         MyFunc.Bekle(2);
 
-        WebElement eMailTekrar=driver.findElement(By.xpath("//input[@id='rnufe2']"));
-        eMailTekrar.sendKeys("testuser@example.com");
+        WebElement eMailTekrar = driver.findElement(By.xpath("//input[@id='rnufe2']"));
+        eMailTekrar.sendKeys("testuser3@example.com");
         MyFunc.Bekle(2);
 
-        WebElement sifre=driver.findElement(By.xpath("//input[@id='rnufp1']"));
+        WebElement sifre = driver.findElement(By.xpath("//input[@id='rnufp1']"));
         sifre.sendKeys("Password123");
         MyFunc.Bekle(2);
 
-        WebElement sifreTekrar=driver.findElement(By.xpath("//input[@id='rnufp2']"));
+        WebElement sifreTekrar = driver.findElement(By.xpath("//input[@id='rnufp2']"));
         sifreTekrar.sendKeys("Password123");
         MyFunc.Bekle(2);
 
-        WebElement gender=driver.findElement(By.xpath("//input[@id='rngf']"));
+        WebElement gender = driver.findElement(By.xpath("//input[@id='rngf']"));
         gender.click();
         MyFunc.Bekle(2);
 
-        WebElement day=driver.findElement(By.xpath("//select[@id='bd']"));
+        WebElement day = driver.findElement(By.xpath("//select[@id='bd']"));
         day.sendKeys("1");
         MyFunc.Bekle(2);
 
-       WebElement month=driver.findElement(By.xpath("//select[@id='bm']"));
-       month.sendKeys("1");
-       MyFunc.Bekle(2);
+        WebElement month = driver.findElement(By.xpath("//select[@id='bm']"));
+        month.sendKeys("1");
+        MyFunc.Bekle(2);
 
-       WebElement year=driver.findElement(By.xpath("//select[@id='by']"));
-       year.sendKeys("1990");
-       MyFunc.Bekle(2);
+        WebElement year = driver.findElement(By.xpath("//select[@id='by']"));
+        year.sendKeys("1990");
+        MyFunc.Bekle(2);
 
-        WebElement create=driver.findElement(By.xpath("//input[@id='rfb']"));
+        WebElement create = driver.findElement(By.xpath("//input[@id='rfb']"));
         create.click();
         MyFunc.Bekle(2);
 
-
-
-
+        WebElement sozlesmebtn = driver.findElement(By.cssSelector("input#rnufpca"));
+        sozlesmebtn.click();
+        MyFunc.Bekle(2);
 
 
     }
